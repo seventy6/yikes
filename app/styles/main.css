@@ -1,5 +1,9 @@
 /* Space out content a bit */
+html {
+  height: 100%
+}
  body {
+    height: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
     color: #fff;
@@ -52,7 +56,7 @@ h1 {
 /* Main marketing message and sign up button */
  .jumbotron {
     text-align: center;
-    /*  border-bottom: 1px solid #e5e5e5;*/
+    box-shadow: 4px 4px 3px 0px rgba(12, 4, 4, 0.58);
 }
 .jumbotron .btn {
     font-size: 21px;
