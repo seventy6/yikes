@@ -1,0 +1,4 @@
+Google authentication an app
+Tutorial: OAuth - https://developer.chrome.com/extensions/tut_oauth
+
+https://developer.chrome.com/apps/app_identity#client_id
