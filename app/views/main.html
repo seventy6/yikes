@@ -1,167 +1,49 @@
 <h1>Yikes!</h1>
-<div class="jumbotron">    
-    <div id="clock" class="flip-counter clock flip-clock-wrapper" style="margin:1em;">
-         <span class="flip-clock-divider days">
-            <span class="flip-clock-label">Days</span>
-            <span class="flip-clock-dot top"></span>
-            <span class="flip-clock-dot bottom"></span>
-        </span>
-        <ul class="flip ">
-            <li data-digit="0" class="flip-clock-active">
-                <a href="#" class="flip-clock-before">
-                    <div class="up">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeDaysFirst}}</div>
-                    </div>
-                    <div class="down flip-clock-before">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeDaysFirst}}</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-        <ul class="flip ">
-            <li data-digit="0" class="flip-clock-active">
-                <a href="#" class="flip-clock-before">
-                    <div class="up">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeDaysSecond}}</div>
-                    </div>
-                    <div class="down flip-clock-before">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeDaysSecond}}</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-        <span class="flip-clock-divider hours">
-            <span class="flip-clock-label">Hours</span>
-            <span class="flip-clock-dot top"></span>
-            <span class="flip-clock-dot bottom"></span>
-        </span>
-        <ul class="flip ">
-            <li data-digit="0" class="flip-clock-active">
-                <a href="#" class="flip-clock-before">
-                    <div class="up">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeHoursFirst}}</div>
-                    </div>
-                    <div class="down flip-clock-before">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeHoursFirst}}</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-        <ul class="flip ">
-            <li data-digit="0" class="flip-clock-active">
-                <a href="#" class="flip-clock-before">
-                    <div class="up">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeHoursSecond}}</div>
-                    </div>
-                    <div class="down flip-clock-before">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeHoursSecond}}</div>
-                    </div>
-                </a>
-            </li>
-        </ul>        
-        <span class="flip-clock-divider minutes">
-            <span class="flip-clock-label">Minutes</span>
-            <span class="flip-clock-dot top"></span>
-            <span class="flip-clock-dot bottom"></span>
-        </span>
-        <ul class="flip ">
-            <li data-digit="0" class="flip-clock-active">
-                <a href="#" class="flip-clock-before">
-                    <div class="up">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeMinutesFirst}}</div>
-                    </div>
-                    <div class="down flip-clock-before">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeMinutesFirst}}</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-        <ul class="flip ">
-            <li data-digit="0" class="flip-clock-active">
-                <a href="#" class="flip-clock-before">
-                    <div class="up">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeMinutesSecond}}</div>
-                    </div>
-                    <div class="down flip-clock-before">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeMinutesSecond}}</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-        <span class="flip-clock-divider seconds">
-            <span class="flip-clock-label">Seconds</span>
-            <span class="flip-clock-dot top"></span>
-            <span class="flip-clock-dot bottom"></span>
-        </span>
-        <ul class="flip ">
-            <li data-digit="0" class="flip-clock-active">
-                <a href="#" class="flip-clock-before">
-                    <div class="up">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeSecondsFirst}}</div>
-                    </div>
-                    <div class="down flip-clock-before">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeSecondsFirst}}</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-        <ul class="flip ">
-            <li data-digit="0" class="flip-clock-active">
-                <a href="#" class="flip-clock-before">
-                    <div class="up">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeSecondsSecond}}</div>
-                    </div>
-                    <div class="down flip-clock-before">
-                        <div class="shadow"></div>
-                        <div class="inn flip-clock-before">{{timeSecondsSecond}}</div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
+<div class="jumbotron">
+    <!-- <div id="clock" style="margin:1em;">        
+    </div> -->
     <h1>
-        {{todo}}
+        <span class="todo">'{{todo}}'</span> happens in
+        <span id="clock"></span>
     </h1>
-</div>
-<div class="container">
-    <!-- <button class="btn btn-default" ng-show="myDate.length > 0" ng-click="showDetails = ! showDetails" aria-label="Remove">
-        <span class="glyphicon glyphicon-edit"></span>
-    </button> -->
-    <form role="form" ng-submit="addTodo()"><!-- ng-show="myDate.length == 0 || showDetails"> -->
-        <div class="row">
-            <div class="col-xs-4">
-                <input id="myDateInput" ui-date ui-date-format="yy,mm,dd" ng-model="myDate" class="form-control  input-lg" placeholder="Pick your date">
-            </div>
-            <div class="col-xs-4">
-                <input id="myYikeName" type="text" ng-model="todo" class="form-control input-lg" placeholder="Name it">
-            </div>
+
+    <div class="container">
+        <!-- <button class="btn btn-default" ng-show="myDate.length > 0" ng-click="showDetails = ! showDetails" aria-label="Remove">
+            <span class="glyphicon glyphicon-edit"></span>
+        </button> -->
+        <form role="form" ng-submit="addTodo()">
+            <!-- ng-show="myDate.length == 0 || showDetails"> -->            
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    D
+                  </span>
+                  <input id="myDateInput" ui-date ui-date-format="yy,mm,dd" ng-model="myDate" class="form-control  input-lg" placeholder="Pick your date">
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+              <div class="col-lg-6">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    T
+                  </span>
+                  <input id="myYikeName" type="text" ng-model="todo" class="form-control input-lg" placeholder="Name it">
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </form>
+        <!-- <div ui-sortable>
+            <p class="input-group" ng-repeat="todo in todos" style="padding:5px 10px; cursor: move;">
+                <input type="text" ng-model="todo" class="form-control" ng-change="changeTodo($index)">
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+                </span>
+            </p>
         </div>
-    </form>
-    <!-- <div ui-sortable>
-        <p class="input-group" ng-repeat="todo in todos" style="padding:5px 10px; cursor: move;">
-            <input type="text" ng-model="todo" class="form-control" ng-change="changeTodo($index)">
-            <span class="input-group-btn">
-                <button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
-            </span>
-        </p>
+      -->
     </div>
-  -->
 </div>
+
 
 <div class="footer">
     <p>

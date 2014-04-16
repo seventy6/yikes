@@ -28,7 +28,7 @@ angular.module('yikeesApp')
         }, true);
 
         $scope.$watch('myDate', function() {
-            console.log('$scope.myDate', $scope.myDate)
+            $scope.todo = '';
             localStorageService.add('todo', $scope.todo);
             localStorageService.add('myDate', $scope.myDate);
             //$scope.updateClock();
@@ -69,22 +69,22 @@ angular.module('yikeesApp')
                     new Date($scope.myDate),
                     function(ts) {
                         
-                        console.log('ts', ts);
+                        //console.log('ts', ts);
                         
-                        if (!$scope.$$phase) {
-                            $scope.$apply(function() {
-                                $scope.timeDaysFirst = String('00' + ts.days).slice(-2).charAt(0);
-                                $scope.timeDaysSecond = String(ts.days).slice(-1);
-                                $scope.timeHoursFirst = String('0' + ts.hours).slice(-2).charAt(0);
-                                $scope.timeHoursSecond = String(ts.hours).slice(-1);
-                                $scope.timeMinutesFirst = String('0' + ts.minutes).slice(-2).charAt(0);
-                                $scope.timeMinutesSecond = String(ts.minutes).slice(-1);
-                                $scope.timeSecondsFirst = String('0' + ts.seconds).slice(-2).charAt(0);
-                                $scope.timeSecondsSecond = String(ts.seconds).slice(-1);
-                            });
-                        }
+                        // if (!$scope.$$phase) {
+                        //     $scope.$apply(function() {
+                        //         $scope.timeDaysFirst = String('00' + ts.days).slice(-2).charAt(0);
+                        //         $scope.timeDaysSecond = String(ts.days).slice(-1);
+                        //         $scope.timeHoursFirst = String('0' + ts.hours).slice(-2).charAt(0);
+                        //         $scope.timeHoursSecond = String(ts.hours).slice(-1);
+                        //         $scope.timeMinutesFirst = String('0' + ts.minutes).slice(-2).charAt(0);
+                        //         $scope.timeMinutesSecond = String(ts.minutes).slice(-1);
+                        //         $scope.timeSecondsFirst = String('0' + ts.seconds).slice(-2).charAt(0);
+                        //         $scope.timeSecondsSecond = String(ts.seconds).slice(-1);
+                        //     });
+                        // }
                         //$('#clock').html('<ul class="flip "><li data-digit="0" class="flip-clock-active"><a href="#" class="flip-clock-before"><div class="down flip-clock-before"><div class="shadow"></div><div class="inn flip-clock-before">' + ts.days + '</div></div></a></li></ul><ul class="flip "><li data-digit="0" class="flip-clock-active"><a href="#" class="flip-clock-before"><div class="down flip-clock-before"><div class="shadow"></div><div class="inn flip-clock-before">' + ts.hours + '</div></div></a></li></ul><ul class="flip"><li class="flip-clock-active">' + ts.minutes + '</li></ul>' + '<ul class="flip"><li class="flip-clock-active">' + ts.seconds + '</li></ul>');
-                        //document.getElementById('clock').innerHTML = ts.toHTML("li");
+                        $('#clock').html(ts.toHTML("em"));
                     },
                     //countdown.MILLENNIA |
                     //countdown.CENTURIES |
@@ -99,6 +99,6 @@ angular.module('yikeesApp')
             ); //countdown.MILLISECONDS
         }
         //run for the first time
-        setUpDate();
+        //setUpDate();
 
     });
