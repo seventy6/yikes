@@ -68,7 +68,8 @@ h1 {
     color: rgb(211, 128, 143);
 }
 .jumbotron em {
-    font-weight: bold;
+    font-weight: 500;
+    font-style: normal;
     color: rgba(0, 0, 0, 0.80);
 }
 /* Supporting marketing content */
