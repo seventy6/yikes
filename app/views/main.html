@@ -1,36 +1,40 @@
- <h1>Yikes! - remember the important things in life!</h1>
- <div class="jumbotron">
+<div class="jumbotron">
     <h1>
-        <span class="todo">'{{todo}}'</span> in
-        <span id="clock"></span>
+        <span class="todo">{{todo}}</span>&nbsp;in&nbsp;<span id="clock"></span>
     </h1>
 
     <div class="container">
 
         <form role="form" ng-submit="addTodo()">
-            <!-- ng-show="myDate.length == 0 || showDetails"> -->            
+            <!-- ng-show="myDate.length == 0 || showDetails"> -->
             <div class="row">
-              <div class="col-lg-6">
-                <div class="input-group">
-                  <span class="input-group-addon">
-                    D
-                  </span>
-                  <input id="myDateInput" ui-date ui-date-format="yy,mm,dd" ng-model="myDate" class="form-control  input-lg" placeholder="Pick your date" tabindex="1">
-                </div><!-- /input-group -->
-              </div><!-- /.col-lg-6 -->
-              <div class="col-lg-6">
-                <div class="input-group">
-                  <span class="input-group-addon">
-                    T
-                  </span>
-                  <input id="myYikeName" type="text" ng-model="todo" class="form-control input-lg" placeholder="Name it" tabindex="2">
-                </div><!-- /input-group -->
-              </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-        </form>       
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </span>
+                        <input id="myYikeName" type="text" ng-model="todo" class="form-control input-lg" placeholder="Name it" tabindex="2">
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                        <input id="myDateInput" ui-date ui-date-format="yy,mm,dd" ng-model="myDate" class="form-control  input-lg" placeholder="Pick your date" tabindex="1">
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+            <!-- /.row -->
+        </form>
     </div>
 </div>
 <div class="footer">
     <p>
-        <span class="glyphicon glyphicon-heart"></span> Yikes! Team</p>
+        <span class="glyphicon glyphicon-heart"></span>&nbsp;Yikes! - there to remember the important things in life...
+    </p>
 </div>

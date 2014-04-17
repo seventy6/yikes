@@ -15,15 +15,18 @@ angular.module('yikeesApp')
         if($scope.myDate.length == 0 || $scope.todo == []) {
           $scope.todo = 'Happy New Year!';
 
-          var currentDate = new Date();
+          var currentDate = new Date(),
+              newDate = new Date(Number(currentDate.getFullYear() + 1), 0, '01');
+              //console.log('newDate', newDate.getFullYear()+', '+newDate.getMonth()+', '+newDate.getDate());
           //console.log('currentDate.getFullYear()', currentDate.getFullYear() + 1);
-          $scope.myDate = new Date(Number(currentDate.getFullYear() + 1), 0, 1);
+          $scope.myDate = newDate.getFullYear()+',01,01';
         }
 
+        //listeners for model changes
         $scope.$watch('todo', function() {
             localStorageService.add('todo', $scope.todo);
             localStorageService.add('myDate', $scope.myDate);
-            //$scope.updateClock();
+            //update clock
             setUpDate();
         }, true);
 
@@ -31,10 +34,9 @@ angular.module('yikeesApp')
           
             //this would reset the todo
             //$scope.todo = '';
-
             localStorageService.add('todo', $scope.todo);
             localStorageService.add('myDate', $scope.myDate);
-            //$scope.updateClock();
+            //update clock
             setUpDate();
         }, true);
 
@@ -63,7 +65,4 @@ angular.module('yikeesApp')
                     countdown.SECONDS
             ); //countdown.MILLISECONDS
         }
-        //run for the first time
-        //setUpDate();
-
     });
