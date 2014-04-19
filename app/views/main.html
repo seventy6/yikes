@@ -1,13 +1,28 @@
 <div class="jumbotron">
-    <h1>
-        <span class="todo">{{todo}}</span>&nbsp;in&nbsp;<span id="clock"></span>
-    </h1>
+    <div ng-show="!editDetails" class="container animate-show">
+        <h1>
+            <button type="submit" class="btn btn-default btn-xs" ng-click="editDetails = !editDetails">
+                <span class="glyphicon glyphicon-cog"></span>
+            </button>
+            <span class="todo">{{todo}}</span>&nbsp;in&nbsp;
+            <span id="clock"></span>            
+        </h1>
+    </div>
+    <div class="container animate-show" ng-show="firstTime == true || editDetails == true">
 
-    <div class="container">
-
-        <form role="form" ng-submit="addTodo()">
+        <form role="form" ng-submit="addYike()">
             <!-- ng-show="myDate.length == 0 || showDetails"> -->
             <div class="row">
+                <!-- /.col-lg-6 -->
+                <div class="col-lg-1">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-lg btn-success" ng-click="yikeType = !yikeType" ng-class="{'btn-danger' : yikeType == false}">
+                            <span class="glyphicon glyphicon-thumbs-up" ng-class="{'glyphicon-thumbs-down' : yikeType == false}"></span>
+                        </button>
+                    </div>
+                    <!-- /button-group -->
+                </div>
+                <!-- /.col-lg-6 
                 <div class="col-lg-6">
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -15,10 +30,10 @@
                         </span>
                         <input id="myYikeName" type="text" ng-model="todo" class="form-control input-lg" placeholder="Name it" tabindex="2">
                     </div>
-                    <!-- /input-group -->
+                     /input-group 
                 </div>
-                <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
+                 /.col-lg-6 -->
+                <div class="col-lg-4">
                     <div class="input-group">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
@@ -28,8 +43,26 @@
                     <!-- /input-group -->
                 </div>
                 <!-- /.col-lg-6 -->
+                <div class="col-lg-1">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-lg btn-success">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                    </div>
+                    <!-- /button-group -->
+                </div>
+                <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
+            <div class="row">
+                <!-- /.col-lg-6 -->
+                <div class="col-lg-12">
+                    <textarea id="myYikeName" type="text" ng-model="todo" class="form-control input-lg" placeholder="Name it" tabindex="2"></textarea>
+                    <!-- /button-group -->
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+             <!-- /.row -->
         </form>
     </div>
 </div>

@@ -4,7 +4,8 @@ angular
   .module('yikeesApp', [
     'ngRoute',
     'ui',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ngAnimate'
   ])
   .config(['localStorageServiceProvider', function(localStorageServiceProvider){
     localStorageServiceProvider.setPrefix('ls');
