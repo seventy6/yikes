@@ -1,73 +1,88 @@
-<div class="jumbotron">
-    <div ng-show="!editDetails" class="container animate-show">
+<div class="jumbotron">    
+    <div ng-show="!editDetails" class="container animate-show">        
+        
         <h1>
-            <button type="submit" class="btn btn-default btn-xs" ng-click="editDetails = !editDetails">
-                <span class="glyphicon glyphicon-cog"></span>
-            </button>
-            <span class="todo">{{todo}}</span>&nbsp;in&nbsp;
-            <span id="clock"></span>            
+            <span class="todo" ng-class="{'negative' : !yikeType}">{{todo}}</span>
+            <span ng-show="tense == 'present'">in</span>
+            <span ng-show="tense == 'past'">happened</span>
+            <span id="clock"></span>
+            <span ng-show="tense == 'past'">ago&hellip;</span>
         </h1>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- <div ng-if="firstTime == true"> -->                    
+                    <a class="btn btn-default btn-lg firstime-popover" ng-click="editDetails = !editDetails" data-container="body" data-toggle="popover" data-placement="bottom" data-content="To edit your first Yike! click me" data-toggle-trigger="mouseenter">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </a>
+                  <!--</div>
+              /else
+                <div ng-if="firstTime == false">                    
+                    <a class="btn btn-default btn-lg" ng-click="$parent.editDetails = !$parent.editDetails">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </a>
+                </div>-->
+            </div>
+        </div>
     </div>
-    <div class="container animate-show" ng-show="firstTime == true || editDetails == true">
-
-        <form role="form" ng-submit="addYike()">
-            <!-- ng-show="myDate.length == 0 || showDetails"> -->
-            <div class="row">
-                <!-- /.col-lg-6 -->
-                <div class="col-lg-1">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-lg btn-success" ng-click="yikeType = !yikeType" ng-class="{'btn-danger' : yikeType == false}">
-                            <span class="glyphicon glyphicon-thumbs-up" ng-class="{'glyphicon-thumbs-down' : yikeType == false}"></span>
-                        </button>
-                    </div>
-                    <!-- /button-group -->
-                </div>
-                <!-- /.col-lg-6 
-                <div class="col-lg-6">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-edit"></span>
-                        </span>
-                        <input id="myYikeName" type="text" ng-model="todo" class="form-control input-lg" placeholder="Name it" tabindex="2">
-                    </div>
-                     /input-group 
-                </div>
-                 /.col-lg-6 -->
-                <div class="col-lg-4">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                        <input id="myDateInput" ui-date ui-date-format="yy,mm,dd" ng-model="myDate" class="form-control  input-lg" placeholder="Pick your date" tabindex="1">
-                    </div>
-                    <!-- /input-group -->
-                </div>
-                <!-- /.col-lg-6 -->
-                <div class="col-lg-1">
-                    <div class="btn-group">
-                        <button type="submit" class="btn btn-lg btn-success">
-                            <span class="glyphicon glyphicon-ok"></span>
-                        </button>
-                    </div>
-                    <!-- /button-group -->
-                </div>
-                <!-- /.col-lg-6 -->
+    <!-- <div class="container animate-show" ng-show="firstTime == true || editDetails == true"> -->
+    <div class="container animate-show" ng-show="editDetails == true">
+        <div class="row">
+            <div class="col-lg-10">
+                <h1 class="pull-left">Update your Yike!</h1>
             </div>
-            <!-- /.row -->
-            <div class="row">
-                <!-- /.col-lg-6 -->
-                <div class="col-lg-12">
+            <div class="col-lg-2">
+                <button type="button" class="btn btn-default btn-lg pull-right" ng-click="editDetails = !editDetails" >
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+        </div>
+        <form class="form-horizontal" role="form" ng-submit="addYike()">
+            <div class="form-group">
+                <label for="yikeDateInput" class="col-sm-3 control-label">
+                    Name
+                </label>
+                <div class="col-sm-9">
                     <textarea id="myYikeName" type="text" ng-model="todo" class="form-control input-lg" placeholder="Name it" tabindex="2"></textarea>
-                    <!-- /button-group -->
                 </div>
-                <!-- /.col-lg-6 -->
             </div>
-             <!-- /.row -->
+            <div class="form-group">
+                <label for="yikeDateInput" class="col-sm-3 control-label">
+                    Time
+                </label>
+                <div class="col-sm-2">
+                    <input id="yikeDateHoursInput" ng-model="yikeDateHours" type="number" min="1" max="24" step="1" placeholder="hrs" class="form-control  input-lg">
+                </div>
+                <div class="col-sm-2">
+                    <input id="yikeDateMinutesInput" ng-model="yikeDateMinutes" type="number" min="0" max="59" step="1" placeholder="mins" class="form-control  input-lg">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="yikeDateInput" class="col-sm-3 control-label">
+                    Date
+                </label>
+                <div class="col-sm-4">
+                    <input id="yikeDateInput" ui-date ui-date-format="yy,mm,dd" ng-model="yikeDate" class="form-control  input-lg" placeholder="Pick your date" tabindex="1">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="yikeType" class="col-sm-3 control-label">Good or Bad?</label>
+                <div class="col-sm-9">
+                    <button type="button" class="btn btn-lg btn-success" ng-click="yikeType = !yikeType" ng-class="{'btn-danger' : !yikeType}">
+                        <span class="glyphicon glyphicon-thumbs-up" ng-class="{'glyphicon-thumbs-down' : yikeType == false}"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-9 pull-right">
+                    <button type="submit" class="btn btn-lg btn-info">
+                        Update
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
-</div>
-<div class="footer">
-    <p>
-        <span class="glyphicon glyphicon-heart"></span>&nbsp;Yikes! - there to remember the important things in life...
-    </p>
 </div>

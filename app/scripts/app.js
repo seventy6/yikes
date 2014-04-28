@@ -5,7 +5,8 @@ angular
     'ngRoute',
     'ui',
     'LocalStorageModule',
-    'ngAnimate'
+    'ngAnimate',
+    'ui.bootstrap'
   ])
   .config(['localStorageServiceProvider', function(localStorageServiceProvider){
     localStorageServiceProvider.setPrefix('ls');
@@ -19,6 +20,10 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'MainCtrl'
+      })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
       })
       .otherwise({
         redirectTo: '/'
