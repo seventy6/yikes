@@ -1,7 +1,11 @@
-<div class="jumbotron">    
-    <div ng-show="!editDetails" class="container animate-show">        
-        
-        <h1>
+<div class="jumbotron"  ng-class="{'past' : tense == 'past'}">
+    <div class="popover fade bottom in" style="display: block; top: 1px; left: 10px; position: fixed;">
+        <div class="arrow"></div>
+        <h3 class="popover-title" style="display: none;"></h3>
+        <div class="popover-content">Keep this tab open if you want desktop notifications!</div>
+    </div>
+    <div ng-show="!editDetails" class="container animate-show">
+        <h1 class="consistant-popover" data-container="body" data-toggle="popover" data-placement="top" data-content="{{yikeActualDate | date:'EEEE d MMMM yyyy @ h:mma'}}" data-toggle-trigger="mouseenter">
             <span class="todo" ng-class="{'negative' : !yikeType}">{{todo}}</span>
             <span ng-show="tense == 'present'">in</span>
             <span ng-show="tense == 'past'">happened</span>
@@ -10,11 +14,11 @@
         </h1>
         <div class="row">
             <div class="col-lg-12">
-                <!-- <div ng-if="firstTime == true"> -->                    
-                    <a class="btn btn-default btn-lg firstime-popover" ng-click="editDetails = !editDetails" data-container="body" data-toggle="popover" data-placement="bottom" data-content="To edit your first Yike! click me" data-toggle-trigger="mouseenter">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                  <!--</div>
+                <!-- <div ng-if="firstTime == true"> -->
+                <a class="btn btn-default btn-lg firstime-popover" ng-click="editDetails = !editDetails" data-container="body" data-toggle="popover" data-placement="bottom" data-content="To edit your first Yike! click me" data-toggle-trigger="mouseenter">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <!--</div>
               /else
                 <div ng-if="firstTime == false">                    
                     <a class="btn btn-default btn-lg" ng-click="$parent.editDetails = !$parent.editDetails">
@@ -31,7 +35,7 @@
                 <h1 class="pull-left">Update your Yike!</h1>
             </div>
             <div class="col-lg-2">
-                <button type="button" class="btn btn-default btn-lg pull-right" ng-click="editDetails = !editDetails" >
+                <button type="button" class="btn btn-default btn-lg pull-right" ng-click="editDetails = !editDetails">
                     <span class="glyphicon glyphicon-remove"></span>
                 </button>
             </div>
@@ -47,34 +51,35 @@
             </div>
             <div class="form-group">
                 <label for="yikeDateInput" class="col-sm-3 control-label">
-                    Time
-                </label>
-                <div class="col-sm-2">
-                    <input id="yikeDateHoursInput" ng-model="yikeDateHours" type="number" min="1" max="24" step="1" placeholder="hrs" class="form-control  input-lg">
-                </div>
-                <div class="col-sm-2">
-                    <input id="yikeDateMinutesInput" ng-model="yikeDateMinutes" type="number" min="0" max="59" step="1" placeholder="mins" class="form-control  input-lg">
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="yikeDateInput" class="col-sm-3 control-label">
-                    Date
+                    What time?
                 </label>
                 <div class="col-sm-4">
-                    <input id="yikeDateInput" ui-date ui-date-format="yy,mm,dd" ng-model="yikeDate" class="form-control  input-lg" placeholder="Pick your date" tabindex="1">
-
+                    <!-- <div id="floating_timepicker"></div> -->
+                    <div class="bootstrap-timepicker">
+                        <input id="timepicker3" type="text" class="form-control  input-lg">
+                    </div>
                 </div>
             </div>
+
             <div class="form-group">
-                <label for="yikeType" class="col-sm-3 control-label">Good or Bad?</label>
+                <label for="yikeDateInput" class="col-sm-3 control-label">
+                    Which day?
+                </label>
+                <div class="col-sm-4">
+                    {{minDate}}
+                    <input id="yikeDateInput" ui-date ui-date-format="yy,mm,dd" ng-model="yikeDate" class="form-control  input-lg" minDate="{{minDate}}" placeholder="Pick your date" tabindex="1">
+                    <!--                     <div id="yikeDateInput" ui-date="dateOptions"  ui-date-format="yy,mm,dd" ng-model="yikeDate" class=""></div>
+ --></div>
+            </div>
+            <div class="form-group">
+                <label for="yikeType" class="col-sm-3 control-label">Is it a good or bad thing?</label>
                 <div class="col-sm-9">
                     <button type="button" class="btn btn-lg btn-success" ng-click="yikeType = !yikeType" ng-class="{'btn-danger' : !yikeType}">
                         <span class="glyphicon glyphicon-thumbs-up" ng-class="{'glyphicon-thumbs-down' : yikeType == false}"></span>
                     </button>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <div class="col-sm-9 pull-right">
                     <button type="submit" class="btn btn-lg btn-info">
